@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistencia para Trabajos Escolares con Investigación</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            scroll-behavior: smooth;
+        }
+        
+        nav {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1rem;
+        }
+        
+        .description {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #fff;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        main {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #667eea;
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+        }
+        
+        .service-card i {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        section {
+            background-color: white;
+            margin-bottom: 2.5rem;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15);
+        }
+        
+        h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        ul, ol {
+            margin-left: 1.5rem;
+        }
+        
+        ul li, ol li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+        
+        ul li:before {
+            content: '✓ ';
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+        }
+        
+        .contact h2 {
+            color: white;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .whatsapp-button {
+            display: inline-block;
+            background: #25d366;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            font-size: 1.1rem;
+        }
+        
+        .whatsapp-button:hover {
+            background: #20ba5a;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-button i {
+            margin-right: 0.5rem;
+        }
+        
+        footer {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-weight: 500;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .feature-item i {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-top: 0.3rem;
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .description {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1><i class="fas fa-graduation-cap"></i> Asistencia Escolar</h1>
+            <ul>
+                <li><a href="#ofrecemos">Qué Ofrecemos</a></li>
+                <li><a href="#como-funciona">Cómo Funciona</a></li>
+                <li><a href="#precios">Precios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Trabajos Escolares Profesionales</h1>
+        <p class="description">Investigación de calidad, redacción impecable y entrega a tiempo. Impulsa tus calificaciones con trabajos escritos que cumplen todas las indicaciones de tu profesor.</p>
+        <a href="#contacto" class="cta-button"><i class="fas fa-paper-plane"></i> Solicitar Servicio</a>
+    </header>
+
+    <main>
+        <!-- Servicios Destacados -->
+        <section id="ofrecemos">
+            <h2><i class="fas fa-check-circle"></i> Qué Ofrecemos</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <i class="fas fa-search"></i>
+                    <div>
+                        <strong>Investigación Profunda</strong>
+                        <p>Fuentes confiables y información verificada según los estándares académicos.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-pen-fancy"></i>
+                    <div>
+                        <strong>Redacción Profesional</strong>
+                        <p>Texto original, bien estructurado y siguiendo las normas que tu profesor solicita.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <div>
+                        <strong>Múltiples Formatos</strong>
+                        <p>PDF, Word, Google Docs u otros formatos que necesites.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-book"></i>
+                    <div>
+                        <strong>Bibliografía Incluida</strong>
+                        <p>Referencias completas en el formato que requiera tu profesor.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-print"></i>
+                    <div>
+                        <strong>Impresión Opcional</strong>
+                        <p>Si lo necesitas, podemos imprimir y encuadernar tu trabajo.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <strong>Entrega Rápida</strong>
+                        <p>Desde 24 horas según la complejidad del trabajo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tipos de Trabajos -->
+        <section id="tipos">
+            <h2><i class="fas fa-file-alt"></i> Tipos de Trabajos que Realizamos</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-microscope"></i>
+                    <h3>Trabajos de Investigación</h3>
+                    <p>Proyectos completos basados en investigación académica con análisis profundo del tema.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Biografías</h3>
+                    <p>Biografías de personajes históricos, científicos y relevantes con fuentes verificadas.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Informes</h3>
+                    <p>informes de investigacion de un tema en especifico.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Trabajos Finales</h3>
+                    <p>Proyectos finales del semestre y grandes trabajos académicos de cualquier complejidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cómo Funciona -->
+        <section id="como-funciona">
+            <h2><i class="fas fa-cogs"></i> Cómo Funciona el Proceso</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div style="text-align: center; padding: 1.5rem; background: #f8f9fa; border-radius: 10px;">
+                    <div style="font-size: 2rem; color: #667eea; font-weight: bold; margin-bottom: 1rem;">1</div>
+                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">Envía tu solicitud</h3>
+                    <p>Cuéntanos el tema, materia y lo que tu profesor pide por WhatsApp.</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem; background: #f8f9fa; border-radius: 10px;">
+                    <div style="font-size: 2rem; color: #667eea; font-weight: bold; margin-bottom: 1rem;">2</div>
+                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">Cotización</h3>
+                    <p>Te enviamos el precio y el tiempo estimado de entrega.</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem; background: #f8f9fa; border-radius: 10px;">
+                    <div style="font-size: 2rem; color: #667eea; font-weight: bold; margin-bottom: 1rem;">3</div>
+                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">Pago</h3>
+                    <p>Acuerda el pago según tu conveniencia y disponibilidad.</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem; background: #f8f9fa; border-radius: 10px;">
+                    <div style="font-size: 2rem; color: #667eea; font-weight: bold; margin-bottom: 1rem;">4</div>
+                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">Entrega</h3>
+                    <p>Recibe tu trabajo en el formato que solicitaste, listo para entregar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lo que Necesitamos -->
+        <section id="necesitas">
+            <h2><i class="fas fa-list-check"></i> Información que Necesitamos</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <i class="fas fa-book-open"></i>
+                    <div><strong>Tema del trabajo</strong></div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-tag"></i>
+                    <div><strong>Materia o asignatura</strong></div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-sticky-note"></i>
+                    <div><strong>Indicaciones del profesor (si existen)</strong></div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div><strong>Fecha de entrega requerida</strong></div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-file-word"></i>
+                    <div><strong>Formato preferido (Word, PDF, etc.)</strong></div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-print"></i>
+                    <div><strong>¿Requieres impresión?</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Precios y Tiempos -->
+        <section id="precios">
+            <h2><i class="fas fa-tag"></i> Precios y Tiempos de Entrega</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div style="padding: 2rem; background: #f0f4ff; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h3 style="color: #667eea; margin-bottom: 1rem;">Trabajos Cortos</h3>
+                    <p style="margin-bottom: 1rem;"><strong>1-3 páginas</strong></p>
+                    <p style="color: #764ba2; font-size: 1.2rem; font-weight: bold;">⏱ 24 horas</p>
+                </div>
+                <div style="padding: 2rem; background: #f0f4ff; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h3 style="color: #667eea; margin-bottom: 1rem;">Trabajos Medianos</h3>
+                    <p style="margin-bottom: 1rem;"><strong>4-8 páginas</strong></p>
+                    <p style="color: #764ba2; font-size: 1.2rem; font-weight: bold;">⏱ 48 horas</p>
+                </div>
+                <div style="padding: 2rem; background: #f0f4ff; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h3 style="color: #667eea; margin-bottom: 1rem;">Trabajos Complejos</h3>
+                    <p style="margin-bottom: 1rem;"><strong>9+ páginas</strong></p>
+                    <p style="color: #764ba2; font-size: 1.2rem; font-weight: bold;">⏱ Según complejidad</p>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; padding: 1.5rem; background: #fff3cd; border-radius: 10px; border-left: 4px solid #ffc107; text-align: center;">
+                <strong>💰 Precios especiales según extensión y urgencia</strong> - Solicita tu cotización personalizada
+            </p>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <h2><i class="fas fa-question-circle"></i> Preguntas Frecuentes</h2>
+            <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+                <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">¿Puedo pedir cambios en el trabajo?</h3>
+                    <p>Sí, siempre que estén dentro del alcance solicitado al profesor.</p>
+                </div>
+                <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">¿Incluyen bibliografía?</h3>
+                    <p>Sí, incluimos referencias completas en el formato que tu profesor solicite (APA, MLA, Chicago, etc.)</p>
+                </div>
+                <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">¿Qué materias abarcan?</h3>
+                    <p>Cubrimos la mayoría de materias teóricas de secundaria.</p>
+                </div>
+                <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">¿Aceptan trabajos urgentes?</h3>
+                    <p>Sí, según disponibilidad. Consúltanos y te diremos si podemos cumplir tu fecha.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto" class="contact">
+            <h2 style="color: white;"><i class="fas fa-whatsapp"></i> ¡Contáctanos Ahora!</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Envíanos un mensaje por WhatsApp con los detalles de tu trabajo</p>
+            
+            <a href="https://wa.me/18097636296?text=Hola,%20me%20interesa%20solicitar%20un%20trabajo%20escolar." class="whatsapp-button" target="_blank">
+                <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+            </a>
+            
+            <p style="margin-top: 2rem; font-size: 1rem;">
+                <strong>Horario de atención:</strong><br>
+                Lunes a Viernes: 9:00 AM - 10:00 PM<br>
+                (Flexible según tu necesidad)
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Asistencia Escolar | Trabajos de Investigación de Calidad | <i class="fas fa-heart" style="color: #ff6b6b;"></i></p>
+    </footer>
+</body>
+</html>
