@@ -218,6 +218,11 @@
             margin-right: 0.5rem;
         }
         
+        nav ul li:before {
+            content: '';
+            margin-right: 0;
+        }
+        
         .contact {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -288,32 +293,380 @@
             flex-shrink: 0;
         }
         
+        /* Estilos para el proceso */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover {
+            background: #f0f4ff;
+            transform: translateY(-3px);
+        }
+        
+        .step-number {
+            font-size: 2rem;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .process-step h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Estilos para precios */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .price-card {
+            padding: 2rem;
+            background: #f0f4ff;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            text-align: center;
+        }
+        
+        .price-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .price-card .size {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .price-card .time {
+            color: #764ba2;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .pricing-note {
+            padding: 1.5rem;
+            background: #fff3cd;
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+            text-align: center;
+            color: #856404;
+        }
+        
+        /* Estilos para FAQ */
+        .faq-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .faq-item {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .faq-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Estilos para contacto */
+        .contact-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-hours {
+            margin-top: 2rem;
+            font-size: 1rem;
+        }
+        
+        
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .features-list {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+        
         @media (max-width: 768px) {
+            * {
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
             nav .container {
-                flex-direction: column;
-                gap: 1rem;
+                flex-wrap: nowrap;
+                gap: 0.3rem;
+                padding: 0.8rem;
+                justify-content: flex-start;
+                align-items: center;
+            }
+            
+            nav h1 {
+                font-size: 1.3rem;
+                margin-bottom: 0;
+                white-space: nowrap;
+                flex: 0 0 auto;
+                margin-right: 0.3rem;
             }
             
             nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1rem;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                gap: 0.3rem;
+                width: auto;
+                flex: 1 1 auto;
+            }
+            
+            nav ul li a {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.35rem;
+                white-space: nowrap;
+                display: inline-block;
+            }
+            
+            header {
+                padding: 3rem 1rem;
             }
             
             header h1 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
+                margin-bottom: 0.8rem;
             }
             
             .description {
-                font-size: 1rem;
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+                line-height: 1.6;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 1.8rem;
+                font-size: 0.95rem;
+            }
+            
+            main {
+                margin: 1.5rem auto;
+                padding: 0 0.8rem;
             }
             
             section {
-                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                padding: 1.2rem;
+                border-radius: 12px;
             }
             
             h2 {
+                font-size: 1.3rem;
+                padding-bottom: 0.8rem;
+                margin-bottom: 1rem;
+            }
+            
+            .features-list {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+            
+            .feature-item {
+                gap: 0.8rem;
+            }
+            
+            .feature-item i {
+                font-size: 1.3rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+            
+            .service-card i {
+                font-size: 2.5rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .whatsapp-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .contact {
+                padding: 2rem 1rem;
+            }
+            
+            .contact h2 {
+                font-size: 1.3rem;
+            }
+            
+            .contact p {
+                font-size: 1rem;
+            }
+            
+            footer {
+                padding: 1.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            ul li, ol li {
+                margin-bottom: 0.6rem;
+                line-height: 1.6;
+            }
+            
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+                margin-top: 1.5rem;
+            }
+            
+            .process-step {
+                padding: 1.2rem;
+            }
+            
+            .step-number {
+                font-size: 1.8rem;
+            }
+            
+            .process-step h3 {
+                font-size: 1rem;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .price-card {
+                padding: 1.5rem;
+            }
+            
+            .faq-grid {
+                gap: 1rem;
+            }
+            
+            .faq-item {
+                padding: 1.2rem;
+            }
+            
+            .contact-subtitle {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .contact-hours {
+                margin-top: 1.5rem;
+                font-size: 0.95rem;
+            }
+        
+        @media (max-width: 480px) {
+            nav .container {
+                flex-direction: column;
+                flex-wrap: wrap;
+                gap: 0.4rem;
+                align-items: center;
+                justify-content: center;
+                padding: 0.6rem;
+            }
+            
+            nav h1 {
+                font-size: 0.9rem;
+                width: 100%;
+                text-align: center;
+                flex-basis: 100%;
+            }
+            
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex-basis: 100%;
+                justify-content: center;
+                gap: 0.3rem;
+                list-style: none;
+            }
+            
+            nav ul li a {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.4rem;
+            }
+
+            
+            header h1 {
                 font-size: 1.5rem;
+            }
+            
+            .description {
+                font-size: 0.9rem;
+            }
+            
+            .cta-button {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            main {
+                padding: 0 0.5rem;
+                margin: 1rem auto;
+            }
+            
+            .features-list {
+                gap: 0.8rem;
+            }
+            
+            .whatsapp-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.95rem;
+            }
+            
+            .contact {
+                padding: 1.5rem 0.8rem;
             }
         }
     </style>
@@ -417,25 +770,25 @@
         <!-- Cómo Funciona -->
         <section id="como-funciona">
             <h2><i class="fas fa-cogs"></i> Cómo Funciona el Proceso</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                <div style="text-align: center; padding: 1.5rem; background: #f8f9fa; border-radius: 10px;">
-                    <div style="font-size: 2rem; color: #667eea; font-weight: bold; margin-bottom: 1rem;">1</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">Envía tu solicitud</h3>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Envía tu solicitud</h3>
                     <p>Cuéntanos el tema, materia y lo que tu profesor pide por WhatsApp.</p>
                 </div>
-                <div style="text-align: center; padding: 1.5rem; background: #f8f9fa; border-radius: 10px;">
-                    <div style="font-size: 2rem; color: #667eea; font-weight: bold; margin-bottom: 1rem;">2</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">Cotización</h3>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Cotización</h3>
                     <p>Te enviamos el precio y el tiempo estimado de entrega.</p>
                 </div>
-                <div style="text-align: center; padding: 1.5rem; background: #f8f9fa; border-radius: 10px;">
-                    <div style="font-size: 2rem; color: #667eea; font-weight: bold; margin-bottom: 1rem;">3</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">Pago</h3>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Pago</h3>
                     <p>Acuerda el pago según tu conveniencia y disponibilidad.</p>
                 </div>
-                <div style="text-align: center; padding: 1.5rem; background: #f8f9fa; border-radius: 10px;">
-                    <div style="font-size: 2rem; color: #667eea; font-weight: bold; margin-bottom: 1rem;">4</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">Entrega</h3>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Entrega</h3>
                     <p>Recibe tu trabajo en el formato que solicitaste, listo para entregar.</p>
                 </div>
             </div>
@@ -475,46 +828,46 @@
         <!-- Precios y Tiempos -->
         <section id="precios">
             <h2><i class="fas fa-tag"></i> Precios y Tiempos de Entrega</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                <div style="padding: 2rem; background: #f0f4ff; border-radius: 10px; border-left: 4px solid #667eea;">
-                    <h3 style="color: #667eea; margin-bottom: 1rem;">Trabajos Cortos</h3>
-                    <p style="margin-bottom: 1rem;"><strong>1-3 páginas</strong></p>
-                    <p style="color: #764ba2; font-size: 1.2rem; font-weight: bold;">⏱ 24 horas</p>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Trabajos Cortos</h3>
+                    <p class="size"><strong>1-3 páginas</strong></p>
+                    <p class="time">⏱ 24 horas</p>
                 </div>
-                <div style="padding: 2rem; background: #f0f4ff; border-radius: 10px; border-left: 4px solid #667eea;">
-                    <h3 style="color: #667eea; margin-bottom: 1rem;">Trabajos Medianos</h3>
-                    <p style="margin-bottom: 1rem;"><strong>4-8 páginas</strong></p>
-                    <p style="color: #764ba2; font-size: 1.2rem; font-weight: bold;">⏱ 48 horas</p>
+                <div class="price-card">
+                    <h3>Trabajos Medianos</h3>
+                    <p class="size"><strong>4-8 páginas</strong></p>
+                    <p class="time">⏱ 48 horas</p>
                 </div>
-                <div style="padding: 2rem; background: #f0f4ff; border-radius: 10px; border-left: 4px solid #667eea;">
-                    <h3 style="color: #667eea; margin-bottom: 1rem;">Trabajos Complejos</h3>
-                    <p style="margin-bottom: 1rem;"><strong>9+ páginas</strong></p>
-                    <p style="color: #764ba2; font-size: 1.2rem; font-weight: bold;">⏱ Según complejidad</p>
+                <div class="price-card">
+                    <h3>Trabajos Complejos</h3>
+                    <p class="size"><strong>9+ páginas</strong></p>
+                    <p class="time">⏱ Según complejidad</p>
                 </div>
             </div>
-            <p style="margin-top: 2rem; padding: 1.5rem; background: #fff3cd; border-radius: 10px; border-left: 4px solid #ffc107; text-align: center;">
+            <div class="pricing-note">
                 <strong>💰 Precios especiales según extensión y urgencia</strong> - Solicita tu cotización personalizada
-            </p>
+            </div>
         </section>
 
         <!-- FAQ -->
         <section id="faq">
             <h2><i class="fas fa-question-circle"></i> Preguntas Frecuentes</h2>
-            <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
-                <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #667eea;">
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">¿Puedo pedir cambios en el trabajo?</h3>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>¿Puedo pedir cambios en el trabajo?</h3>
                     <p>Sí, siempre que estén dentro del alcance solicitado al profesor.</p>
                 </div>
-                <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #667eea;">
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">¿Incluyen bibliografía?</h3>
+                <div class="faq-item">
+                    <h3>¿Incluyen bibliografía?</h3>
                     <p>Sí, incluimos referencias completas en el formato que tu profesor solicite (APA, MLA, Chicago, etc.)</p>
                 </div>
-                <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #667eea;">
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">¿Qué materias abarcan?</h3>
+                <div class="faq-item">
+                    <h3>¿Qué materias abarcan?</h3>
                     <p>Cubrimos la mayoría de materias teóricas de secundaria.</p>
                 </div>
-                <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #667eea;">
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">¿Aceptan trabajos urgentes?</h3>
+                <div class="faq-item">
+                    <h3>¿Aceptan trabajos urgentes?</h3>
                     <p>Sí, según disponibilidad. Consúltanos y te diremos si podemos cumplir tu fecha.</p>
                 </div>
             </div>
@@ -523,13 +876,13 @@
         <!-- Contacto -->
         <section id="contacto" class="contact">
             <h2 style="color: white;"><i class="fas fa-whatsapp"></i> ¡Contáctanos Ahora!</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Envíanos un mensaje por WhatsApp con los detalles de tu trabajo</p>
+            <p class="contact-subtitle">Envíanos un mensaje por WhatsApp con los detalles de tu trabajo</p>
             
             <a href="https://wa.me/18097636296?text=Hola,%20me%20interesa%20solicitar%20un%20trabajo%20escolar." class="whatsapp-button" target="_blank">
                 <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
             </a>
             
-            <p style="margin-top: 2rem; font-size: 1rem;">
+            <p class="contact-hours">
                 <strong>Horario de atención:</strong><br>
                 Lunes a Viernes: 9:00 AM - 10:00 PM<br>
                 (Flexible según tu necesidad)
@@ -542,4 +895,3 @@
     </footer>
 </body>
 </html>
-
